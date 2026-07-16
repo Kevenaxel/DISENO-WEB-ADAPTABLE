@@ -1,0 +1,38 @@
+/*Aplicar Grid a los Contenedores*/
+.contenedor{
+    display: grid;/*Tarjetas en Fila*/
+    grid-template-columns: repeat(12, 1fr);/*Tarjetas en Fila*/
+    gap: 16px; /*Espacio de las tarjetas*/
+    padding: 0 16px; /*Centraliza todo*/
+}
+
+
+/*Configuracion del Encabezado*/
+/*Debemos declarar cuantas columnas tendran cada elemento*/
+.encabezado{
+    font-size: 50px; /*Tamano de texto*/
+    color: rgba(39, 83, 202);
+    margin-bottom: 15px;
+    background-color:rgba(255, 212, 72);
+    grid-column: 1/13;/* 12 col.*/
+}
+
+.tarjeta{
+    grid-column: span 4; /*Espacio de la pagina*/
+    background-color: darkblue;
+    color: white;
+    border-radius: 8px;
+    align-items: center;
+    text-align: center;
+    padding: 10;
+}
+
+.pie{
+    font-size: 50px;
+    color: rgba(39, 83, 202);
+    margin-bottom: 15px;
+    background-color:rgba(255, 212, 72);
+    grid-column: 1/13;/* 12 col.*/
+    text-align: center; /*Centrar Pie de la Pagina*/
+
+}
