@@ -24,7 +24,8 @@
     border-radius: 8px;
     align-items: center;
     text-align: center;
-    padding: 10;
+    padding: 10px;
+    gap: 8px;
 }
 
 .pie{
@@ -35,4 +36,12 @@
     grid-column: 1/13;/* 12 col.*/
     text-align: center; /*Centrar Pie de la Pagina*/
 
+}
+
+.btn{
+    background-color: #f0c040;
+    color: #0f1e3d;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
 }
