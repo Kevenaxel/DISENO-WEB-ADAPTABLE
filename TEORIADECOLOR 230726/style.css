@@ -1,16 +1,16 @@
 :root {
-    --color-primario: hsl(265, 60%, 25%);  /* Púrpura oscuro elegante */
-    --color-acento: hsl(160, 84%, 39%);    /* Verde menta/esmeralda de acento */
-    --color-texto: hsl(265, 20%, 18%);     /* Texto oscuro con matiz púrpura */
-    --color-fondo: hsl(265, 30%, 96%);     /* Fondo claro suave */
+    --color-primario: hsl(265, 60%, 25%);   /* Púrpura oscuro elegante */
+    --color-acento: hsl(160, 84%, 39%);     /* Verde menta/esmeralda de acento */
+    --color-texto: hsl(265, 20%, 18%);      /* Texto oscuro con matiz púrpura */
+    --color-fondo: hsl(265, 30%, 96%);      /* Fondo claro suave */
 
     /* Colores auxiliares */
     --color-tarjeta: hsl(0, 0%, 100%);     /* Blanco para el fondo de tarjeta */
-    --color-borde: hsl(265, 25%, 86%);      /* Borde suave armonizado */
+    --color-borde: hsl(265, 25%, 86%);       /* Borde suave armonizado */
 }
 
 /* ==========================================
-   REQUERIMIENTO 2: box-sizing: border-box global
+   REQUERIMIENTO 2: box-sizing global
    ========================================== */
 *,
 *::before,
@@ -21,123 +21,12 @@
 }
 
 /* ==========================================
-   ESTILOS BASE DEL DOCUMENTO
+   ESTILOS BASE DEL DOCUMENTO Y HERO
    ========================================== */
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: var(--color-fondo);
     color: var(--color-texto);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-}
-
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1100px;
-    width: 100%;
-}
-
-/* ==========================================
-   REQUERIMIENTOS 3 y 4: 
-   - border, border-radius y padding a cada tarjeta
-   - Separar las tarjetas con margin
-   ========================================== */
-.product-card {
-    background-color: var(--color-tarjeta);
-    
-    /* Req 3: border, border-radius y padding */
-    border: 2px solid var(--color-borde);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin: 1rem;/* Req 4: Separar las tarjetas con margin */
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(90, 40, 130, 0.08);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-primario);
-}
-
-/* Elementos internos de la tarjeta */
-.card-image {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    background-color: var(--color-fondo);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-name {
-    font-size: 1.25rem;
-    color: var(--color-primario);
-    margin-bottom: 0.5rem;
-}
-
-.product-desc {
-    font-size: 0.9rem;
-    color: var(--color-texto);
-    margin-bottom: 1.25rem;
-    line-height: 1.4;
-    flex-grow: 1;
-}
-
-.product-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-primario);
-    margin-bottom: 1.25rem;
-}
-
-.product-price small {
-    font-size: 0.85rem;
-    font-weight: normal;
-}
-
-/* ==========================================
-   REQUERIMIENTO 5: Botón "Comprar" con --color-acento
-   ========================================== */
-.btn-comprar {
-    background-color: var(--color-acento); /* Uso de la variable verde menta */
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    transition: opacity 0.2s ease, transform 0.1s ease;
-}
-
-.btn-comprar:hover {
-    opacity: 0.92;
-}
-
-.btn-comprar:active {
-    transform: scale(0.98);
-}
-
-/* ==========================================
-   TAREA: Hero con degradado + imagen
-   El degradado oscuro mejora la legibilidad
-   del texto sobre la fotografía.
-   ========================================== */
-body {
     display: block;
     padding: 0;
     background: linear-gradient(135deg, hsl(265, 30%, 96%), hsl(160, 35%, 94%));
@@ -182,6 +71,7 @@ body {
     opacity: 0.9;
 }
 
+/* Botón Hero */
 .btn-reservar {
     display: inline-block;
     margin-top: 2rem;
@@ -193,15 +83,24 @@ body {
     text-decoration: none;
     background: radial-gradient(circle at top left, hsl(191, 90%, 54%), hsl(250, 75%, 58%));
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Transiciones explícitas */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-reservar:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
 
+/* ==========================================
+   TARJETAS Y PRODUCTOS
+   ========================================== */
 .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 3.5rem 1rem;
@@ -209,18 +108,99 @@ body {
 
 .product-card {
     background: linear-gradient(155deg, #ffffff, hsl(265, 45%, 98%));
+    border: 2px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(90, 40, 130, 0.08);
+    /* Transición suave para tarjeta */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
+.product-card:hover {
+    transform: scale(1.03) translateY(-4px);
+    border-color: var(--color-primario);
+    box-shadow: 0 8px 24px rgba(90, 40, 130, 0.18);
+}
+
+/* --- NUEVO EFECTO 1 ADICIONAL (TAREA): Icono de la tarjeta --- */
 .card-image {
+    font-size: 3rem;
+    margin-bottom: 1rem;
     background: radial-gradient(circle at 30% 25%, hsl(160, 85%, 85%), hsl(265, 38%, 92%));
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Transición explícita */
+    transition: transform 0.3s ease;
 }
 
+/* Al pasar el cursor sobre la tarjeta, el icono rota y escala levemente */
+.product-card:hover .card-image {
+    transform: scale(1.12) rotate(8deg);
+}
+
+.product-name {
+    font-size: 1.25rem;
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+.product-desc {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin-bottom: 1.25rem;
+}
+
+.product-price small {
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+/* Botón Comprar */
 .btn-comprar {
     background: linear-gradient(135deg, hsl(160, 84%, 39%), hsl(191, 73%, 38%));
     box-shadow: 0 6px 14px rgba(22, 122, 91, 0.2);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    /* Transición explícita */
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Pie de página: degradado lineal de tres colores de la paleta. */
+.btn-comprar:hover {
+    transform: translateY(-2px) scale(1.02);
+    opacity: 0.95;
+    box-shadow: 0 8px 18px rgba(22, 122, 91, 0.3);
+}
+
+.btn-comprar:active {
+    transform: scale(0.98);
+}
+
+/* --- NUEVO EFECTO 2 ADICIONAL (TAREA): Footer con interactividad --- */
 .site-footer {
     padding: 1.25rem 1rem;
     color: #ffffff;
@@ -234,6 +214,20 @@ body {
     );
 }
 
+.site-footer p {
+    display: inline-block;
+    cursor: pointer;
+    /* Transición explícita */
+    transition: transform 0.3s ease-out;
+}
+
+.site-footer p:hover {
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* ==========================================
+   MEDIA QUERIES
+   ========================================== */
 @media (max-width: 600px) {
     .hero {
         min-height: 460px;
