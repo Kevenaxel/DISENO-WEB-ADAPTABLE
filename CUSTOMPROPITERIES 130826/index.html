@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Variables · Ejercicio Clase 8</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Variables</h1>
+    <button class="toggle-btn" id="toggle">Modo oscuro</button>
+  </header>
+
+  <p>
+    Variables globales, locales, animaciones y tema dinámico.
+  </p>
+
+  <div class="grid">
+
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <h2>Spinner</h2>
+      <p>
+        <span class="spinner"></span>
+        Gira con <code>--dur-spinner</code>.
+      </p>
+      <p>Duración actual: <span id="dur-spinner-val">0.8s</span></p>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <h2>Pulso</h2>
+      <p>
+        <span class="badge">¡Nuevo!</span>
+        Late con <code>--dur-pulso</code>.
+      </p>
+      <p>Duración: <span id="dur-pulso-val">1.4s</span></p>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="card">
+      <h2>Entrada</h2>
+      <p>Aparece con <code>--dur-entrada</code> y retraso escalonado.</p>
+      <p>Duración: <span id="dur-entrada-val">0.45s</span></p>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="card">
+      <h2>Variable local</h2>
+      <p>
+        Esta tarjeta usa <code>--card-bg</code> definida solo en <code>.card</code>.
+        Cambia con el tema.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Sección de reflexión -->
+  <div class="reflexion">
+    <h3>Preguntas para pensar</h3>
+    <ul>
+      <li>Si cambias <code>--dur-entrada</code> a <code>1s</code> en <code>:root</code>, ¿cuántas líneas de CSS tuviste que editar?</li>
+      <li>¿Qué pasaría si usas <code>var(--color-inexistente)</code> sin fallback?</li>
+      <li>¿Dónde conviene definir variables locales en lugar de en <code>:root</code>?</li>
+    </ul>
+  </div>
+
+  <script src="/index.js"></script>
+
+</body>
+</html>
