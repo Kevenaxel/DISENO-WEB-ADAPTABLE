@@ -1,0 +1,249 @@
+/* Variables globales */
+
+:root{
+    /* Variables de paleta de colores */
+    --c-Primario :#3B82f6;
+    --c-acento:#8b5cf6;
+    --c-exito:#10b981;
+    --c-texto:#11827;
+    --c-fondo:#f9fafb;
+    --c-tarjeta:#ffff;
+    --c-sombra:rgba(0,0,0,0.08);
+
+    /* escalas de espaciado*/
+    --esp-xs: 0.25rem;
+    --esp-sm:0.5rem;
+    --esp-md:1rem;
+    --esp-lg:2rem;
+    --esp-xl:4rem;
+
+    /* TipoGrafia */
+
+    --fuente-base:'Inter',system-ui, --aple-system , san-serif;
+    --tam-sm:0.875rem;
+    --tem-md:1rem;
+    --tem-lg:1.25rem;
+    --tam-titulo:2rem;
+    --peso-normal:400;
+    --peso-bold:700;
+
+
+    /* Duracion de animaciones */
+
+    --dur-spiner:0.8s;
+    --dur-pulso:1.4s;
+    --dur-entrada:0.45s;
+    --timing-suave:ease-in-out;
+
+
+    /* Bordes y radios */
+
+    --radio:0.75rem;
+    --borde:1px solid #e5e7eb; 
+
+
+
+
+     
+
+}
+
+
+/* Root para tema oscuro */
+
+
+[data-theme="oscuro"]{
+    /* Variables de paleta de colores */
+    --c-Primario :#60a5fa;
+    --c-acento:#a78bfa;
+    --c-exito:#34d399;
+    --c-texto:#f9fafb;
+    --c-fondo:#1f2937;
+    --c-tarjeta:#374151;
+    --c-sombra:rgba(0,0,0,0.04);
+
+
+    --borde:1px solid #4b5563;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: var(--fuente-base);
+    background-color: var(--c-fondo);
+    color:var(--c-texto) ;
+    padding: var(--esp-lg);
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100hv;
+
+}
+
+
+.card{
+    --card-bg:var(--c-tarjeta);
+    background-color: var(--card-bg);
+    border-radius: var(--radio);
+    box-shadow: 0px 6px var(--c-sombra);
+    padding: var(--esp-lg);
+    border: var(--borde);
+    transition: background-color 0,3s border-colro 0.3s;
+
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--esp-md);
+    margin-bottom: var(--esp-xl);
+
+}
+
+
+
+h1{
+    font-size: var(--tam-titulo);
+    font-weight: var(--peso-bold);
+    color: var(--c-Primario);
+
+}
+
+.toggle-btn{
+    background-color: var(--c-Primario);
+    color: #ffff;
+    border: none;
+    padding: var(--esp-sm) var(--esp-lg);
+    border-radius: 9999px;
+    font-size: var(--tem-md);
+    font-weight: var(--peso-bold);
+    cursor: pointer;
+    transform: background-color 0.3s transform 0.2s;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+
+
+}
+
+
+.toggle-btn:hover{
+    transform: scale(1.05);
+    background-color: var(--c-acento);
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(220px, 1fr));
+    gap: var(--esp-lg);
+    margin-top: var(--esp-md);
+
+
+}
+
+
+.card{
+    animation: subir var(--dur-entrada) var(--timing-suave) forwards;
+    opacity: 0;  /* Se oculta antes de la animacion*/
+    transform: translateY(30px);
+
+
+}
+
+
+/* retraso escalonado */
+
+.card:nth-child(1){
+    animation-delay: 0.1s;
+}
+.card:nth-child(2){
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3){
+    animation-delay: 0.3s;
+}
+.card:nth-child(4){
+    animation-delay: 0.4s;
+}
+
+/* Keyframe */
+@keyframes girar{
+    to{transform: rotate(360deg)
+    
+    }
+}
+
+@keyframes pulso{
+    0%,100% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+
+}
+
+@keyframes subir{
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.card h2{
+    font-size: var(--tem-lg);
+    margin-bottom: var(--esp-sm);
+    color: var(--c-Primario);
+}
+
+.card p{
+    font-size: var(--tem-md);
+    line-height: 1.5;
+    margin-bottom: var(--esp-md);
+}
+
+.spinner{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--c-fondo);
+    border-top-color:var(--c-acento) ;
+    border-radius: 50%;
+    animation: girar var(--dur-spiner) linear infinite;
+    margin-right: var(--esp-sm);
+    vertical-align: middle;
+}
+
+.badge{
+    display: inline-block;
+    background-color: var(--c-exito);
+    color:#ffff;
+    font-size: var(--tam-sm);
+    font-weight: var(--peso-bold);
+    padding: 0.2rem ,0.8rem;
+    border-radius: 9999px;
+    animation:pulso var(--dur-pulso) var(--timing-suave) infinite;
+}
+
+
+.reflexion h3{
+    margin-bottom: var(--esp-md);
+    color: var(--c-Primario);
+    margin-bottom: var(--esp-md);
+}
+
+
+
+
+
+
+

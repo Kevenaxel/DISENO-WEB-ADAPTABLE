@@ -1,0 +1,245 @@
+:root {
+    --color-primario: hsl(265, 60%, 25%);   /* Púrpura oscuro elegante */
+    --color-acento: hsl(160, 84%, 39%);     /* Verde menta/esmeralda de acento */
+    --color-texto: hsl(265, 20%, 18%);      /* Texto oscuro con matiz púrpura */
+    --color-fondo: hsl(265, 30%, 96%);      /* Fondo claro suave */
+
+    /* Colores auxiliares */
+    --color-tarjeta: hsl(0, 0%, 100%);     /* Blanco para el fondo de tarjeta */
+    --color-borde: hsl(265, 25%, 86%);       /* Borde suave armonizado */
+}
+
+/* ==========================================
+   REQUERIMIENTO 2: box-sizing global
+   ========================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   ESTILOS BASE DEL DOCUMENTO Y HERO
+   ========================================== */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--color-texto);
+    min-height: 100vh;
+    display: block;
+    padding: 0;
+    background: linear-gradient(135deg, hsl(265, 30%, 96%), hsl(160, 35%, 94%));
+}
+
+.hero {
+    min-height: 520px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 64px clamp(24px, 8vw, 120px);
+    color: #ffffff;
+    background-image:
+        linear-gradient(90deg, rgba(8, 12, 31, 0.88) 0%, rgba(12, 20, 48, 0.64) 47%, rgba(10, 15, 35, 0.22) 100%),
+        url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.hero-label {
+    color: hsl(185, 100%, 72%);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(2.7rem, 7vw, 5.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+.hero-schedule {
+    margin-top: 1.1rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Botón Hero */
+.btn-reservar {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.9rem 1.35rem;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: radial-gradient(circle at top left, hsl(191, 90%, 54%), hsl(250, 75%, 58%));
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+    /* Transiciones explícitas */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-reservar:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+
+/* ==========================================
+   TARJETAS Y PRODUCTOS
+   ========================================== */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3.5rem 1rem;
+}
+
+.product-card {
+    background: linear-gradient(155deg, #ffffff, hsl(265, 45%, 98%));
+    border: 2px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(90, 40, 130, 0.08);
+    /* Transición suave para tarjeta */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.03) translateY(-4px);
+    border-color: var(--color-primario);
+    box-shadow: 0 8px 24px rgba(90, 40, 130, 0.18);
+}
+
+/* --- NUEVO EFECTO 1 ADICIONAL (TAREA): Icono de la tarjeta --- */
+.card-image {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: radial-gradient(circle at 30% 25%, hsl(160, 85%, 85%), hsl(265, 38%, 92%));
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Transición explícita */
+    transition: transform 0.3s ease;
+}
+
+/* Al pasar el cursor sobre la tarjeta, el icono rota y escala levemente */
+.product-card:hover .card-image {
+    transform: scale(1.12) rotate(8deg);
+}
+
+.product-name {
+    font-size: 1.25rem;
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+.product-desc {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin-bottom: 1.25rem;
+}
+
+.product-price small {
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+/* Botón Comprar */
+.btn-comprar {
+    background: linear-gradient(135deg, hsl(160, 84%, 39%), hsl(191, 73%, 38%));
+    box-shadow: 0 6px 14px rgba(22, 122, 91, 0.2);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    /* Transición explícita */
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-comprar:hover {
+    transform: translateY(-2px) scale(1.02);
+    opacity: 0.95;
+    box-shadow: 0 8px 18px rgba(22, 122, 91, 0.3);
+}
+
+.btn-comprar:active {
+    transform: scale(0.98);
+}
+
+/* --- NUEVO EFECTO 2 ADICIONAL (TAREA): Footer con interactividad --- */
+.site-footer {
+    padding: 1.25rem 1rem;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.86rem;
+    background: linear-gradient(
+        90deg,
+        hsl(265, 60%, 25%),
+        hsl(191, 73%, 38%),
+        hsl(160, 84%, 39%)
+    );
+}
+
+.site-footer p {
+    display: inline-block;
+    cursor: pointer;
+    /* Transición explícita */
+    transition: transform 0.3s ease-out;
+}
+
+.site-footer p:hover {
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* ==========================================
+   MEDIA QUERIES
+   ========================================== */
+@media (max-width: 600px) {
+    .hero {
+        min-height: 460px;
+        padding: 42px 24px;
+        background-position: 58% center;
+    }
+
+    .hero-schedule {
+        line-height: 1.5;
+    }
+
+    .cards-container {
+        padding: 2rem 0.5rem;
+    }
+}
