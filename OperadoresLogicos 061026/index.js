@@ -71,4 +71,4 @@ function agregarAlCarrito(precio){
 agregarAlCarrito(1.5)
 agregarAlCarrito(3.00)
 
-console.log("Items: " + items + ", Total: " + )
+console.log("Items: " + items + ", Total: ")
